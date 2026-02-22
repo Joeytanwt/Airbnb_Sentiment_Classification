@@ -8,23 +8,23 @@ Two distinct datasets were used for this project: a target dataset for analysis 
     *  Source: [InsideAirbnb](https://insideairbnb.com/get-the-data/)
     * The initial dataset contains 38,350 reviews across 6 columns: ```listing_id```, ```id```, ```date```, ```reviewer_id```, ```reviewer_name```, and ```comments```.
     
-![alt text](/images/df_sample.jpg)
+![alt text](images/df_sample.jpg)
 
 2. Training Data (TripAdvisor Hotel Reviews)
     * Source: [TripAdvisor (via Kaggle)](https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews) 
     * Contains 20,491 rows and 2 columns: ```Review``` and ```Rating```.
 
-![alt text](/images/train_df_sample.jpg)
+![alt text](images/train_df_sample.jpg)
 
 ### Data Preparation
 #### Airbnb Data
 The primary focus of the cleaning process was the ```comments``` column, which contained dirty data:
 
 * HTML tags such as ```<br/>```
-![alt text](/images/html_tags.jpg)
+![alt text](images/html_tags.jpg)
 
 * Non-English text: 
-![alt text](/images/non_engsample.jpg)
+![alt text](images/non_engsample.jpg)
 
 * Unnecessary columns (listing_id, id, date, etc.) were dropped.
 
@@ -41,7 +41,7 @@ As the Airbnb dataset didn't contain sentiment labels, an external TripAdvisor H
 
 The training data was then processed using the same cleaning steps above and balanced by sampling 500 rows of each class.
 
-![alt text](/images/balanced(with_neutral).jpg)
+![alt text](images/balanced(with_neutral).jpg)
 
 # Modelling
 ## Feature Extraction with DistilBERT
@@ -92,12 +92,12 @@ The model was evaluated using a train-test split (80/20).
 #### Initial Performance
 The baseline model achieved an accuracy of ~68% and struggled with the "Neutral" class, misclassifying almost half of all neutral sentiments as negative/positive.
 
-![alt text](/images/mod_1_met.jpg)
-![alt text](/images/mod_1_cm.jpg)
+![alt text](images/mod_1_met.jpg)
+![alt text](images/mod_1_cm.jpg)
 
 The ROC curve also showed that the model was overfitting with a high training AUC but a low validation AUC.
 
-![alt text](/images/mod_1_roc.jpg)
+![alt text](images/mod_1_roc.jpg)
 
 To resolve this, a Grid Search was performed with the following adjustments:
 
@@ -121,12 +121,12 @@ grid_search.fit(x_train, y_train)
 #### Tuned Performance
 After tuning, the model improved slightly across all metrics, though it still struggles with the neutral class. This is likely due to the ambiguity in neutral reviews.
 
-![alt text](/images/mod_2_met.jpg)
-![alt text](/images/mod_2_cm.jpg)
+![alt text](images/mod_2_met.jpg)
+![alt text](images/mod_2_cm.jpg)
 
 The tuned model also showed a smaller gap on the ROC curve between training and test sets.
 
-![alt text](/images/mod_2_roc.jpg)
+![alt text](images/mod_2_roc.jpg)
 
 # Analysis and Recommendations
 
@@ -146,13 +146,13 @@ Guests frequently praise the location ("Easy to find") and the high level of ser
 
 ### High Volume of Neutral Sentiments (30%)
 
-![alt text](/images/neutral_revs.jpg)
+![alt text](images/neutral_revs.jpg)
 
 Neutral reviews frequently contain mixed sentiments (e.g., praising the location but mentioning a minor inconvenience) or purely factual statements without strong emotional vocabulary.
 
 ### Low Attrition Rate (6% Negative) with Specific Pain Points
 
-![alt text](/images/neg_revs.jpg)
+![alt text](images/neg_revs.jpg)
 
 Only 21 out of 372 reviews were flagged as negative. While this low volume is excellent, isolating these 21 reviews reveals recurring issues that disrupt the guest experience:
 
