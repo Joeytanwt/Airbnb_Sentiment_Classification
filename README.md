@@ -1,9 +1,3 @@
----
-layout: post
-author: Joey Tan
-title: "Airbnb Business Analytics"
-categories: ITD214
----
 # Project Background
 The objective of this project is to build a sentiment classifier to analyse guest feedback for a specific Airbnb property. Due to the large volume of data in the complete Singapore Airbnb dataset, this analysis focuses on **Listing ID 42081657**, a property with approximately 500 reviews.
 
