@@ -32,7 +32,7 @@ The primary focus of the cleaning process was the ```comments``` column, which c
 
 * Nulls and Duplicates were removed.
 
-After cleaning, the final dataset consisted of 372 unique reviews.
+After cleaning, the final dataset consisted of 370 unique reviews.
 
 #### **Trip Advisor Data**
 As the Airbnb dataset didn't contain sentiment labels, an external Trip Advisor Hotel Reviews dataset was used to train the classifier. The dataset contained a ```Rating``` column with values ranging from 1 to 5. To convert this into a supervised learning problem for sentiment analysis, the ratings were transformed into a categorical label with the following logic:
