@@ -251,7 +251,7 @@ DistilBERT generates high-dimensional contextual embeddings by processing text w
 
 ---
 # Source Codes and Datasets
-[Notebook]((https://github.com/Joeytanwt/Sentiment_Classification_with_DistilBERT))
+[Notebook](https://github.com/Joeytanwt/Sentiment_Classification_with_DistilBERT)
 
 [Aribnb Data](https://data.insideairbnb.com/singapore/sg/singapore/2025-09-28/data/reviews.csv.gz)
 
